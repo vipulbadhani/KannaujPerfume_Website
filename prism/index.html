@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kannauj Perfume — Prism 3D</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Italiana&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Manrope:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/components.css">
+<link rel="stylesheet" href="theme.css">
+<style>
+body{background:radial-gradient(ellipse at 72% 45%,color-mix(in srgb,var(--glow,#c9a46c) 20%,transparent) 0%,transparent 55%),radial-gradient(ellipse at 70% 40%,rgba(255,255,255,.7) 0%,transparent 45%),linear-gradient(180deg,#efe8df,#ddd2c5);background-attachment:fixed}
+#stage3d{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.fallback{position:fixed;right:12vw;top:50%;width:220px;transform:translateY(-50%);z-index:0;pointer-events:none;display:none}
+main{position:relative;z-index:1}
+.sec{min-height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:120px var(--gut)}
+.sec.right>.txt{grid-column:2}
+.txt{max-width:560px}
+.sec h1{font-family:var(--head);font-weight:400;font-size:clamp(56px,8.6vw,150px);line-height:.92;margin:26px 0 30px;letter-spacing:-.01em}
+.sec h2{font-family:var(--head);font-weight:400;font-size:clamp(40px,5.4vw,88px);line-height:1;margin:22px 0 26px}
+.sec h1 em,.sec h2 em{font-family:var(--serif);font-weight:300}
+.sec p{color:var(--mute);line-height:1.9;max-width:460px;font-size:16px}
+.ctas{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap}
+.hint{position:absolute;left:var(--gut);bottom:40px;display:flex;gap:28px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--mute)}
+.hint span{display:flex;align-items:center;gap:10px}
+.hint i{width:22px;height:34px;border:1px solid var(--line);border-radius:12px;position:relative}
+.hint i::after{content:"";position:absolute;left:50%;top:7px;width:2px;height:7px;background:var(--accent);border-radius:2px;transform:translateX(-50%);animation:wheel 2s infinite}
+@keyframes wheel{to{transform:translate(-50%,10px);opacity:0}}
+#s-hero{position:relative}
+.chips3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+.chips3 div{padding:20px 18px;border:1px solid rgba(255,255,255,.8);background:rgba(255,255,255,.5);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.chips3 b{display:block;font-family:var(--head);font-weight:400;font-size:30px;color:var(--accent)}
+.chips3 span{font-size:11px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;line-height:1.6;display:block;margin-top:6px}
+
+/* Collection — pinned while the 3D bottle spins through four attars */
+#s-coll{height:480vh;position:relative}
+#s-coll .pin{position:sticky;top:0;height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:100px var(--gut) 60px;overflow:hidden}
+.ghost{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-family:var(--head);font-size:19vw;line-height:1;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(31,26,36,.16);pointer-events:none;transition:opacity .5s}
+.cinfo{position:relative;max-width:520px}
+.cnum{font-family:var(--head);font-size:20px;color:var(--accent)}
+.cnum s{text-decoration:none;color:var(--mute)}
+.cinfo h2{font-family:var(--head);font-weight:400;font-size:clamp(48px,5.6vw,92px);line-height:1;margin:18px 0 10px}
+.ctag{font-family:var(--serif);font-style:italic;font-size:26px;color:var(--accent2)}
+.cnotes{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0}
+.cnotes span{padding:9px 16px;border:1px solid rgba(255,255,255,.9);border-radius:99px;font-size:12px;background:rgba(255,255,255,.55);backdrop-filter:blur(8px)}
+.cprice{font-size:20px;margin-bottom:26px}
+.swap{transition:opacity .45s,transform .6s var(--ease)}
+.swap.out{opacity:0;transform:translateY(14px)}
+.cbar{position:absolute;left:var(--gut);right:var(--gut);bottom:40px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.cbar div{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);font-weight:500;padding-top:12px;position:relative}
+.cbar div::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:var(--line)}
+.cbar div::after{content:"";position:absolute;top:0;left:0;height:1px;width:calc(var(--p,0)*100%);background:var(--accent)}
+.cbar div.on{color:var(--ink)}
+
+.ritual{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px}
+.ritual div{display:grid;grid-template-columns:60px 1fr;gap:18px;padding:22px 24px;background:rgba(255,255,255,.6);backdrop-filter:blur(10px)}
+.ritual b{font-family:var(--head);font-weight:400;font-size:30px;color:var(--accent)}
+.ritual h4{font-family:var(--serif);font-weight:400;font-size:22px}
+.ritual p{font-size:14px;line-height:1.7}
+#s-cta{grid-template-columns:1fr;text-align:center;align-items:end;padding-bottom:16vh}
+#s-cta .txt{margin:auto;max-width:720px}
+#s-cta p{margin:auto}
+#s-cta .ctas{justify-content:center}
+
+@media (max-width:980px){
+  .sec,#s-coll .pin{grid-template-columns:minmax(0,1fr);align-items:end;padding-top:46vh;padding-bottom:70px}
+  .sec.right>.txt{grid-column:1}
+  #s-hero{padding-top:50vh}
+  .hint{display:none}
+  .chips3{grid-template-columns:1fr 1fr 1fr;gap:8px}.chips3 div{padding:14px 10px}.chips3 b{font-size:22px}.chips3 span{font-size:9px;letter-spacing:.08em}
+  #s-coll .pin{padding-top:44vh;padding-bottom:90px}
+  .cinfo h2{font-size:44px}.ctag{font-size:20px}.cnotes{margin:16px 0}
+  .ghost{display:none}
+  .cbar div{font-size:0}.cbar{bottom:30px}
+  .fallback{right:50%;top:22%;transform:translate(50%,-50%);width:140px}
+  .txt{background:linear-gradient(rgba(238,232,225,0),rgba(238,232,225,.75) 25%);}
+}
+</style>
+</head>
+<body data-page="home" data-theme="prism">
+<canvas id="stage3d" aria-hidden="true"></canvas>
+<div class="fallback" id="fallback"></div>
+
+<main>
+  <section class="sec" id="s-hero" data-pose='{"x":1.75,"y":-0.5,"scale":0.78,"rot":-0.5,"tilt":0.04}' data-mpose='{"x":0,"y":0.72,"scale":0.4,"rot":-0.5,"tilt":0.04}'>
+    <div class="txt">
+      <div class="eyebrow reveal">Kannauj · In a new dimension</div>
+      <h1 class="reveal">Attar,<br><em>reimagined.</em></h1>
+      <p class="reveal">Centuries of copper-distilled craft from India's perfume capital — held in a crystal flacon you can turn in your hands. Move, scroll and explore.</p>
+      <div class="ctas reveal"><a class="btn solid" href="#s-coll">Explore in 3D</a><a class="btn" href="shop.html">Shop All Attars</a></div>
+    </div>
+    <div class="hint"><span><i></i>Scroll to explore</span><span>Move your cursor to turn the bottle</span></div>
+  </section>
+
+  <section class="sec right" id="s-craft" data-pose='{"x":-1.85,"y":-0.5,"scale":0.8,"rot":0.9,"tilt":0.14}' data-mpose='{"x":0,"y":0.72,"scale":0.4,"rot":0.9,"tilt":0.14}'>
+    <div class="txt">
+      <div class="eyebrow reveal">The Flacon</div>
+      <h2 class="reveal">Eight facets.<br><em>One soul.</em></h2>
+      <p class="reveal">Each bottle is cut with eight facets to catch the light, crowned with a ridged gold cap, and filled, sealed and numbered by hand in our Kannauj atelier.</p>
+      <div class="chips3 reveal"><div><b>8</b><span>Faceted crystal</span></div><div><b>72h</b><span>Copper distilled</span></div><div><b>N°</b><span>Hand numbered</span></div></div>
+    </div>
+  </section>
+
+  <section id="s-coll" data-pose='{"x":1.75,"y":-0.5,"scale":0.8,"rot":0,"tilt":0}' data-mpose='{"x":0,"y":0.78,"scale":0.38,"rot":0,"tilt":0}'>
+    <div class="pin">
+      <div class="ghost" id="ghost">Oudh</div>
+      <div class="cinfo">
+        <div class="cnum"><span id="cn">01</span> <s>/ 04</s></div>
+        <div class="swap"><div class="eyebrow" id="cfam" style="margin-top:18px">Woody · Oriental</div><h2 id="cname">Oudh Shahi</h2><div class="ctag" id="ctag"></div></div>
+        <div class="cnotes swap" id="cnotes"></div>
+        <div class="cprice swap" id="cprice"></div>
+        <div class="ctas" style="margin-top:0"><a class="btn solid" id="cview" href="product.html">View in 3D</a><button class="btn" id="cadd" data-add="oudh-shahi">Add to Bag</button></div>
+      </div>
+      <div class="cbar" id="cbar"></div>
+    </div>
+  </section>
+
+  <section class="sec" id="s-ritual" data-pose='{"x":1.95,"y":-0.3,"scale":0.6,"rot":7.2,"tilt":-0.2}' data-mpose='{"x":0,"y":0.75,"scale":0.36,"rot":7.2,"tilt":-0.2}'>
+    <div class="txt">
+      <div class="eyebrow reveal">The Ritual</div>
+      <h2 class="reveal">Wear it the<br><em>Kannauj way.</em></h2>
+      <div class="ritual reveal">
+        <div><b>01</b><div><h4>Warm a single drop</h4><p>Between your wrists — attar opens with the warmth of skin.</p></div></div>
+        <div><b>02</b><div><h4>Touch the pulse points</h4><p>Behind the ears, at the throat, on the inner elbow.</p></div></div>
+        <div><b>03</b><div><h4>Give it ten minutes</h4><p>The heart notes bloom slowly and stay with you all day.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="s-cta" data-pose='{"x":0,"y":0.35,"scale":0.46,"rot":12.6,"tilt":0.05}' data-mpose='{"x":0,"y":0.8,"scale":0.36,"rot":12.6,"tilt":0.05}'>
+    <div class="txt">
+      <div class="eyebrow reveal">Eight attars · One for you</div>
+      <h2 class="reveal">Find the one<br><em>that is yours.</em></h2>
+      <p class="reveal">Explore the full collection, or write to us for a private consultation with our master attar-maker.</p>
+      <div class="ctas reveal"><a class="btn solid" href="shop.html">Shop the Collection</a><a class="btn" href="contact.html">Book a Consultation</a></div>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="../assets/bottle.js"></script>
+<script src="../assets/catalog.js"></script>
+<script src="../assets/site.js"></script>
+<script src="../assets/bottle3d.js"></script>
+<script>
+const COLL = ['oudh-shahi', 'gulab-e-kannauj', 'mitti', 'chandan-reserve'].map(id => CATALOG.find(p => p.id === id));
+const $ = id => document.getElementById(id);
+const b3 = window.Bottle3D && Bottle3D.create($('stage3d'), { light: true });
+if (!b3) { $('fallback').style.display = 'block'; $('fallback').innerHTML = bottleSVG(COLL[0].bottle); }
+
+// Collection UI
+$('cbar').innerHTML = COLL.map(p => `<div>${p.name}</div>`).join('');
+let curIdx = -1;
+function setProduct(i) {
+  if (i === curIdx) return;
+  const p = COLL[i], first = curIdx < 0; curIdx = i;
+  const apply = () => {
+    $('cn').textContent = String(i + 1).padStart(2, '0');
+    $('cfam').textContent = p.fam; $('cname').textContent = p.name; $('ctag').textContent = p.tag;
+    $('cnotes').innerHTML = [p.notes.top, p.notes.heart, p.notes.base].map(n => `<span>${n}</span>`).join('');
+    $('cprice').textContent = '₹ ' + p.price.toLocaleString('en-IN');
+    $('cview').href = 'product.html?id=' + p.id; $('cadd').dataset.add = p.id;
+    $('ghost').textContent = p.name.split(/[ -]/)[0];
+    document.querySelectorAll('.swap').forEach(s => s.classList.remove('out'));
+  };
+  document.body.style.setProperty('--glow', p.bottle.liquid);
+  if (b3) b3.setProduct(p); else $('fallback').innerHTML = bottleSVG(p.bottle);
+  if (first) return apply();
+  document.querySelectorAll('.swap').forEach(s => s.classList.add('out'));
+  setTimeout(apply, 380);
+}
+setProduct(0);
+
+// Scroll choreography: interpolate the bottle between per-section poses
+const secs = [...document.querySelectorAll('[data-pose]')];
+const ease = t => t * t * (3 - 2 * t);
+function anchors() {
+  const mob = innerWidth <= 980, list = [];
+  secs.forEach(s => {
+    const pose = JSON.parse(mob ? s.dataset.mpose : s.dataset.pose);
+    const top = s.offsetTop - (s.id === 's-hero' ? 0 : innerHeight * .15);
+    list.push([Math.max(0, top), pose]);
+    if (s.id === 's-coll') list.push([s.offsetTop + s.offsetHeight - innerHeight, Object.assign({}, pose, { rot: pose.rot + Math.PI * 2 * 3.5 })]);
+  });
+  return list;
+}
+let A = anchors();
+addEventListener('resize', () => { A = anchors(); onScroll(); });
+function onScroll() {
+  const y = scrollY;
+  let i = 0; while (i < A.length - 2 && y >= A[i + 1][0]) i++;
+  const [y0, p0] = A[i], [y1, p1] = A[i + 1];
+  const t = ease(Math.min(1, Math.max(0, (y - y0) / ((y1 - y0) || 1))));
+  if (b3) for (const k in b3.pose) b3.pose[k] = p0[k] + (p1[k] - p0[k]) * t;
+
+  const c = $('s-coll'), cp = Math.min(1, Math.max(0, (y - c.offsetTop) / (c.offsetHeight - innerHeight)));
+  setProduct(Math.min(COLL.length - 1, Math.floor(cp * COLL.length)));
+  [...$('cbar').children].forEach((d, k) => {
+    const v = Math.min(1, Math.max(0, cp * COLL.length - k)); d.style.setProperty('--p', v); d.classList.toggle('on', k === curIdx);
+  });
+}
+addEventListener('scroll', onScroll, { passive: true }); onScroll();
+if (b3) { const p = JSON.parse(innerWidth <= 980 ? secs[0].dataset.mpose : secs[0].dataset.pose); Object.assign(b3.cur, p, { scale: .4, y: p.y - 1 }); }
+</script>
+</body>
+</html>

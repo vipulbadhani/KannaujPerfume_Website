@@ -4,7 +4,7 @@
 (function () {
   const C = window.CATALOG, F = window.FAMILIES;
   const body = document.body, page = body.dataset.page || '', theme = body.dataset.theme || '';
-  const THEMES = [['noir', 'Noir Royal'], ['ivory', 'Ivory Atelier'], ['velvet', 'Mughal Velvet']];
+  const THEMES = [['noir', 'Noir Royal'], ['ivory', 'Ivory Atelier'], ['velvet', 'Mughal Velvet'], ['prism', 'Prism 3D']];
   const SIZES = [['50 ml · Eau de Parfum', 1], ['100 ml · Eau de Parfum', 1.65], ['12 ml · Pure Attar', .55]];
   const rupee = n => '₹ ' + Math.round(n).toLocaleString('en-IN');
   const sizePrice = (p, i) => Math.round(p.price * SIZES[i][1] / 100) * 100;
