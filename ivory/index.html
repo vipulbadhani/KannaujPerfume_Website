@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kannauj Perfume — Ivory Atelier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/components.css">
+<link rel="stylesheet" href="theme.css">
+<style>
+:root{--bg:#f4efe7;--bg2:#ebe3d6;--ink:#1d1915;--mute:#857a6c;--rose:#b5654f;--line:rgba(29,25,21,.14);--serif:'Bodoni Moda',Didot,serif;--sans:'Jost',system-ui,sans-serif;--ease:cubic-bezier(.19,1,.22,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg{display:block;max-width:100%}
+
+
+/* Hero */
+.hero{padding:130px 4vw 0;position:relative}
+.word{font-family:var(--serif);font-weight:400;font-size:16.2vw;line-height:.82;letter-spacing:-.03em;text-align:center;white-space:nowrap;overflow:hidden}
+.word span{display:inline-block;transform:translateY(100%);animation:up 1.6s var(--ease) forwards}
+.word span:nth-child(2){animation-delay:.05s}.word span:nth-child(3){animation-delay:.1s}.word span:nth-child(4){animation-delay:.15s}.word span:nth-child(5){animation-delay:.2s}.word span:nth-child(6){animation-delay:.25s}.word span:nth-child(7){animation-delay:.3s}
+@keyframes up{to{transform:none}}
+.hgrid{display:grid;grid-template-columns:1fr 1.1fr 1fr;gap:4vw;align-items:end;margin-top:-2vw;position:relative}
+.arch{aspect-ratio:3/4;border-radius:999px 999px 0 0;background:radial-gradient(circle at 50% 70%,#f2c9b8,#e5b29c 30%,#c98a72 70%,#a86752);display:grid;place-items:center;overflow:hidden;position:relative}
+.arch::after{content:"";position:absolute;inset:14px 14px 0;border:1px solid rgba(255,255,255,.5);border-bottom:0;border-radius:999px 999px 0 0}
+.arch .b{width:46%;margin-top:18%;filter:drop-shadow(0 30px 30px rgba(90,40,25,.4))}
+.petal{position:absolute;width:26px;height:18px;background:#f6d7cb;border-radius:100% 0;opacity:.85;animation:fall linear infinite}
+@keyframes fall{from{transform:translateY(-40px) rotate(0)}to{transform:translateY(120vh) rotate(540deg)}}
+.side{padding-bottom:40px}
+.side small{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+.side h2{font-family:var(--serif);font-weight:400;font-size:clamp(28px,2.8vw,44px);line-height:1.1;margin:14px 0 18px}
+.side h2 i{color:var(--rose)}
+.side p{color:var(--mute);line-height:1.8;font-size:15px;max-width:300px}
+.side.r{text-align:right}.side.r p{margin-left:auto}
+.link{display:inline-block;margin-top:26px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;border-bottom:1px solid var(--ink);padding-bottom:6px;transition:color .3s,border-color .3s}
+.link:hover{color:var(--rose);border-color:var(--rose)}
+
+/* Horizontal rail */
+.rail{height:340vh;position:relative;background:var(--bg2)}
+.rail .pin{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.rail .title{display:flex;justify-content:space-between;align-items:baseline;padding:0 4vw 40px}
+.rail h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5vw,80px)}
+.rail h2 i{color:var(--rose)}
+.rail .count{font-size:12px;letter-spacing:.24em;color:var(--mute)}
+.track{display:flex;gap:2.4vw;padding:0 4vw;will-change:transform}
+.prod{cursor:pointer;flex:0 0 min(360px,78vw);background:var(--bg);padding:28px;position:relative;transition:transform .8s var(--ease)}
+.prod:hover{transform:translateY(-10px)}
+.prod .ph{aspect-ratio:1/1.1;background:var(--tint);display:grid;place-items:center;margin-bottom:24px;overflow:hidden}
+.prod .ph .b{width:44%;transition:transform 1s var(--ease)}
+.prod:hover .ph .b{transform:scale(1.08) rotate(-3deg)}
+.prod .no{position:absolute;top:40px;left:42px;font-family:var(--serif);font-style:italic;font-size:15px}
+.prod h3{font-family:var(--serif);font-weight:400;font-size:28px}
+.prod .meta{display:flex;justify-content:space-between;margin-top:10px;font-size:13px;color:var(--mute)}
+.prod .meta b{color:var(--ink);font-weight:400}
+
+/* Process */
+.process{padding:160px 4vw}
+.process .intro{display:grid;grid-template-columns:1fr 1fr;gap:6vw;margin-bottom:100px}
+.process .intro h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5vw,76px);line-height:1.02}
+.process .intro h2 i{color:var(--rose)}
+.process .intro p{color:var(--mute);line-height:1.9;font-size:17px;align-self:end;max-width:460px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink)}
+.step{padding:34px 28px 0 0;position:relative}
+.step::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--rose)}
+.step .n{font-family:var(--serif);font-size:84px;line-height:1;color:transparent;-webkit-text-stroke:1px var(--ink)}
+.step h4{font-family:var(--serif);font-weight:400;font-size:24px;margin:20px 0 12px}
+.step p{color:var(--mute);line-height:1.8;font-size:14px}
+
+/* Ingredients */
+.ingr{background:var(--ink);color:var(--bg);padding:150px 4vw;text-align:center}
+.ingr small{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#c9a990}
+.ingr h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,5vw,76px);margin:20px 0 80px}
+.ingr h2 i{color:#e3a58f}
+.dots{display:flex;justify-content:center;gap:3vw;flex-wrap:wrap}
+.dot{width:150px;cursor:default}
+.dot .c{width:150px;height:150px;border-radius:50%;background:var(--c);margin-bottom:20px;transition:transform 1s var(--ease),border-radius 1s var(--ease);box-shadow:inset -20px -30px 60px rgba(0,0,0,.25)}
+.dot:hover .c{transform:scale(1.08);border-radius:42% 58% 50% 50%}
+.dot h5{font-family:var(--serif);font-weight:400;font-size:22px}
+.dot span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;opacity:.55}
+
+.quote{padding:170px 10vw;text-align:center}
+.quote blockquote{font-family:var(--serif);font-size:clamp(30px,3.6vw,56px);line-height:1.25;max-width:1100px;margin:auto}
+.quote blockquote i{color:var(--rose)}
+.quote cite{display:block;margin-top:40px;font-style:normal;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute)}
+
+.gift{display:grid;grid-template-columns:1.2fr 1fr;background:var(--bg2)}
+.gift .box{background:linear-gradient(135deg,#d9c6ad,#c4ab8b);display:flex;justify-content:center;align-items:flex-end;gap:2vw;padding:12vh 4vw 8vh;min-height:70vh}
+.gift .box .b{width:16%}
+.gift .box .b:nth-child(odd){transform:translateY(-20px)}
+.gift .txt{padding:10vh 6vw;display:flex;flex-direction:column;justify-content:center}
+.gift h2{font-family:var(--serif);font-weight:400;font-size:clamp(36px,4vw,64px);line-height:1.05;margin:18px 0 22px}
+.gift p{color:var(--mute);line-height:1.9;margin-bottom:12px}
+.gift .price{font-family:var(--serif);font-size:28px;margin:18px 0 10px}
+.gift .btn{align-self:flex-start}
+
+.bigword{font-family:var(--serif);font-size:15vw;line-height:.85;text-align:center;letter-spacing:-.02em;padding:90px 4vw 40px;overflow:hidden}
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1.3s var(--ease),transform 1.3s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hgrid{grid-template-columns:1fr;margin-top:30px}.side,.side.r{text-align:left}.side.r p{margin-left:0}
+  .arch{max-width:420px;width:100%;margin:auto}
+  .process .intro,.gift{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:50px}
+  .rail{height:auto}.rail .pin{position:static;height:auto;padding:100px 0}.track{overflow-x:auto;scroll-snap-type:x mandatory;transform:none!important}.prod{scroll-snap-align:start}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.word span{transform:none}}
+</style>
+</head>
+<body data-page="home" data-theme="ivory">
+
+<header class="hero">
+  <h1 class="word" aria-label="Kannauj"><span>K</span><span>A</span><span>N</span><span>N</span><span>A</span><span>U</span><span>J</span></h1>
+  <div class="hgrid">
+    <div class="side reveal">
+      <small>N° 01 — The Spring Edit</small>
+      <h2>Rose, picked<br><i>before sunrise.</i></h2>
+      <p>Gulab-e-Kannauj is distilled the very morning its petals are gathered — so the bottle holds the dawn, not the day.</p>
+      <a class="link" href="product.html?id=gulab-e-kannauj">Shop the Edit</a>
+    </div>
+    <div class="arch" id="arch">
+      <div class="b" data-bottle='{"name":"GULAB","sub":"E-KANNAUJ","liquid":"#e6a08f","liquid2":"#9c4a3a","cap":"rose","label":"#f6eee6","ink":"#7a3a2c"}'></div>
+    </div>
+    <div class="side r reveal">
+      <small>Perfume Capital of India</small>
+      <h2>Made the way<br><i>it always was.</i></h2>
+      <p>Copper deg, bamboo bhapka, wood fire and time. No shortcuts, no synthetics in our attars.</p>
+      <a class="link" href="heritage.html#craft">Our Process</a>
+    </div>
+  </div>
+</header>
+
+<section class="rail" id="rail">
+  <div class="pin">
+    <div class="title"><h2>The <i>Collection</i></h2><span class="count" id="count">01 / 06</span></div>
+    <div class="track" id="track">
+      <article class="prod" data-href="product.html?id=gulab-e-kannauj" style="--tint:#f1d6cc"><span class="no">N° 01</span><div class="ph"><div class="b" data-bottle='{"name":"GULAB","sub":"E-KANNAUJ","liquid":"#e6a08f","liquid2":"#9c4a3a","cap":"rose","label":"#f6eee6","ink":"#7a3a2c"}'></div></div><h3>Gulab-e-Kannauj</h3><div class="meta"><span>Rose Attar · 50 ml</span><b>₹ 8,900</b></div></article>
+      <article class="prod" data-href="product.html?id=mitti" style="--tint:#d9c7b3"><span class="no">N° 02</span><div class="ph"><div class="b" data-bottle='{"name":"MITTI","sub":"PETRICHOR","liquid":"#a07a5a","liquid2":"#4a3020","cap":"silver","label":"#f2ebe2","ink":"#4a3020"}'></div></div><h3>Mitti</h3><div class="meta"><span>Earth · Monsoon</span><b>₹ 7,500</b></div></article>
+      <article class="prod" data-href="product.html?id=chandan-reserve" style="--tint:#e8d4ae"><span class="no">N° 03</span><div class="ph"><div class="b" data-bottle='{"name":"CHANDAN","sub":"MYSORE","liquid":"#d8a85e","liquid2":"#7a4f18","label":"#f6efe4","ink":"#6a4410"}'></div></div><h3>Chandan</h3><div class="meta"><span>Sandalwood · Creamy</span><b>₹ 18,500</b></div></article>
+      <article class="prod" data-href="product.html?id=khus" style="--tint:#cdd6bf"><span class="no">N° 04</span><div class="ph"><div class="b" data-bottle='{"name":"KHUS","sub":"VETIVER","liquid":"#7f8f5a","liquid2":"#2e3a18","cap":"silver","label":"#f2f2ea","ink":"#2e3a18"}'></div></div><h3>Khus</h3><div class="meta"><span>Vetiver · Cooling</span><b>₹ 6,800</b></div></article>
+      <article class="prod" data-href="product.html?id=kewda" style="--tint:#e9e1c4"><span class="no">N° 05</span><div class="ph"><div class="b" data-bottle='{"name":"KEWDA","sub":"PANDANUS","liquid":"#d9d39a","liquid2":"#7d7530","label":"#faf7ec","ink":"#5c5520"}'></div></div><h3>Kewda</h3><div class="meta"><span>Green Floral</span><b>₹ 7,200</b></div></article>
+      <article class="prod" data-href="product.html?id=shamama" style="--tint:#d8bfa8"><span class="no">N° 06</span><div class="ph"><div class="b" data-bottle='{"name":"SHAMAMA","sub":"ATTAR","liquid":"#a8602e","liquid2":"#41200a","shape":"facet","label":"#f4ebe0","ink":"#5a2a0c"}'></div></div><h3>Shamama</h3><div class="meta"><span>Amber · Forty Herbs</span><b>₹ 12,800</b></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="intro reveal">
+    <h2>From flower<br>to <i>attar.</i></h2>
+    <p>Kannauj still distils the old way — and so do we. It takes a full night over a slow fire, and a year of patience, to make a single batch.</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><div class="n">01</div><h4>Plucked at dawn</h4><p>Petals are gathered before 7am, while the dew still holds their scent.</p></div>
+    <div class="step reveal"><div class="n">02</div><h4>The copper deg</h4><p>Flowers and water are sealed with clay in a copper still over a wood fire.</p></div>
+    <div class="step reveal"><div class="n">03</div><h4>The bhapka</h4><p>Fragrant steam travels by bamboo pipe into sandalwood oil, cooled in water.</p></div>
+    <div class="step reveal"><div class="n">04</div><h4>Aged in kuppi</h4><p>The attar rests in camel-leather kuppis for months until it is truly round.</p></div>
+  </div>
+</section>
+
+<section class="ingr" id="ingr">
+  <small>Our raw materials</small>
+  <h2>Grown in <i>India.</i></h2>
+  <div class="dots">
+    <div class="dot reveal"><div class="c" style="--c:radial-gradient(circle at 35% 30%,#f4b9a8,#c05a48)"></div><h5>Desi Gulab</h5><span>Kannauj</span></div>
+    <div class="dot reveal"><div class="c" style="--c:radial-gradient(circle at 35% 30%,#efd29a,#a8742e)"></div><h5>Chandan</h5><span>Mysore</span></div>
+    <div class="dot reveal"><div class="c" style="--c:radial-gradient(circle at 35% 30%,#b3c08a,#4f5c2a)"></div><h5>Khus</h5><span>Uttar Pradesh</span></div>
+    <div class="dot reveal"><div class="c" style="--c:radial-gradient(circle at 35% 30%,#f7f2e2,#d3c69c)"></div><h5>Mogra</h5><span>Tamil Nadu</span></div>
+    <div class="dot reveal"><div class="c" style="--c:radial-gradient(circle at 35% 30%,#a88466,#4a2e1c)"></div><h5>Oudh</h5><span>Assam</span></div>
+  </div>
+</section>
+
+<section class="quote reveal">
+  <blockquote>“Kannauj does not make perfume. It <i>remembers</i> it — in copper, in clay, in the hands of those who have done this for generations.”</blockquote>
+  <cite>— Our Master Attar-maker</cite>
+</section>
+
+<section class="gift">
+  <div class="box">
+    <div class="b" data-bottle='{"name":"GULAB","liquid":"#e6a08f","liquid2":"#9c4a3a","cap":"rose","label":"#f6eee6","ink":"#7a3a2c"}'></div>
+    <div class="b" data-bottle='{"name":"MITTI","liquid":"#a07a5a","liquid2":"#4a3020","cap":"silver","label":"#f2ebe2","ink":"#4a3020"}'></div>
+    <div class="b" data-bottle='{"name":"CHANDAN","liquid":"#d8a85e","liquid2":"#7a4f18","label":"#f6efe4","ink":"#6a4410"}'></div>
+    <div class="b" data-bottle='{"name":"KHUS","liquid":"#7f8f5a","liquid2":"#2e3a18","cap":"silver","label":"#f2f2ea","ink":"#2e3a18"}'></div>
+    <div class="b" data-bottle='{"name":"SHAMAMA","liquid":"#a8602e","liquid2":"#41200a","label":"#f4ebe0","ink":"#5a2a0c"}'></div>
+  </div>
+  <div class="txt reveal">
+    <span class="link" style="border:0;margin:0;padding:0;color:var(--mute)">The Discovery Coffret</span>
+    <h2>Five attars.<br>One <i style="color:var(--rose)">journey.</i></h2>
+    <p>Five 5 ml bottles in a hand-stitched box. Find your signature, then redeem the full price against a 50 ml bottle.</p>
+    <div class="price">₹ 3,900</div>
+    <a class="btn solid" href="shop.html">Shop the Attars</a>
+  </div>
+</section>
+
+<section class="bigword" aria-hidden="true">Kannauj</section>
+
+<script>window.THEME_BOTTLE={label:'#f6eee6',ink:'#5a3a2c'}</script>
+<script src="../assets/bottle.js"></script>
+<script src="../assets/catalog.js"></script>
+<script src="../assets/site.js"></script>
+<script>
+// Falling petals inside the arch
+const arch = document.getElementById('arch');
+for (let i = 0; i < 9; i++) {
+  const p = document.createElement('i'); p.className = 'petal';
+  p.style.left = Math.random() * 100 + '%'; p.style.animationDuration = 9 + Math.random() * 8 + 's';
+  p.style.animationDelay = -Math.random() * 15 + 's'; p.style.scale = .5 + Math.random() * .7;
+  arch.appendChild(p);
+}
+
+// Vertical scroll drives the horizontal product rail
+const rail = document.getElementById('rail'), track = document.getElementById('track'), count = document.getElementById('count');
+function railMove() {
+  if (innerWidth <= 900) return;
+  const r = rail.getBoundingClientRect(), max = rail.offsetHeight - innerHeight;
+  const p = Math.min(Math.max(-r.top / max, 0), 1);
+  track.style.transform = `translateX(${-p * (track.scrollWidth - innerWidth)}px)`;
+  count.textContent = String(Math.min(6, Math.floor(p * 6) + 1)).padStart(2, '0') + ' / 06';
+}
+addEventListener('scroll', railMove, { passive: true }); addEventListener('resize', railMove);
+
+document.querySelectorAll('.prod[data-href]').forEach(c => c.onclick = () => location.href = c.dataset.href);
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach((el, i) => { el.style.transitionDelay = (i % 4) * .1 + 's'; io.observe(el); });
+</script>
+</body>
+</html>

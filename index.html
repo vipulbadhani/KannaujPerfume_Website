@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kannauj Perfume — Website Designs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0b0a09;color:#efe8db;font-family:'Jost',sans-serif;font-weight:300;padding:9vh 6vw 8vh;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.top small{font-size:11px;letter-spacing:.4em;color:#d8b46a;text-transform:uppercase}
+h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(42px,6.4vw,96px);line-height:.98;margin:18px 0 22px}
+h1 em{color:#d8b46a}
+.lead{color:#8f8778;max-width:620px;line-height:1.85;margin-bottom:64px}
+.g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.d{border:1px solid rgba(216,180,106,.2);display:flex;flex-direction:column;transition:border-color .4s,transform .7s cubic-bezier(.19,1,.22,1)}
+.d:hover{border-color:#d8b46a;transform:translateY(-6px)}
+.sw{height:300px;display:grid;place-items:center;position:relative;overflow:hidden}
+.sw .b{width:100px;transition:transform 1s cubic-bezier(.19,1,.22,1)}
+.d:hover .sw .b{transform:translateY(-10px) scale(1.06)}
+.sw span{position:absolute;top:18px;left:20px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
+.t{padding:28px 26px 10px;flex:1}
+.t h2{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:38px}
+.t p{color:#8f8778;font-size:14px;line-height:1.75;margin-top:8px}
+.pages{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(216,180,106,.2);margin-top:22px}
+.pages a{padding:15px 26px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid rgba(216,180,106,.12);display:flex;justify-content:space-between;transition:background .3s,color .3s}
+.pages a:nth-child(odd){border-right:1px solid rgba(216,180,106,.12)}
+.pages a:hover{background:rgba(216,180,106,.1);color:#d8b46a}
+.pages a.main{grid-column:1/-1;border-right:0;background:rgba(216,180,106,.08);color:#d8b46a}
+.pages a.main:hover{background:#d8b46a;color:#0b0a09}
+.note{margin-top:60px;color:#8f8778;font-size:13px;line-height:1.9;border-top:1px solid rgba(216,180,106,.15);padding-top:28px;max-width:760px}
+.note b{color:#efe8db;font-weight:400}
+@media (max-width:960px){.g{grid-template-columns:minmax(0,1fr)}.sw{height:240px}}
+</style>
+</head>
+<body>
+<div class="top"><small>Kannauj Perfume · Website concepts</small>
+<h1>Three directions,<br><em>one heritage.</em></h1>
+<p class="lead">Each design is a complete clickable website: home, shop, product page, heritage and contact, with a working menu, search and shopping bag. Open one, explore it, and use the switch at the bottom-left to compare the same page across designs.</p></div>
+
+<div class="g">
+  <div class="d">
+    <a class="sw" href="noir/index.html" style="background:radial-gradient(circle,#2a1f0e,#070605 70%)"><span>Design 01</span><div class="b" data-bottle='{"name":"OUDH SHAHI","liquid":"#a8752e","liquid2":"#3a1f07","shape":"facet"}'></div></a>
+    <div class="t"><h2>Noir Royal</h2><p>Black and gold, cinematic. An intro animation, a custom cursor, a floating bottle and a notes pyramid. Closest to Parfums de Marly in spirit, but richer.</p></div>
+    <div class="pages"><a class="main" href="noir/index.html">Open website <span>→</span></a><a href="noir/shop.html">Shop</a><a href="noir/product.html?id=oudh-shahi">Product</a><a href="noir/heritage.html">Heritage</a><a href="noir/contact.html">Contact</a></div>
+  </div>
+  <div class="d">
+    <a class="sw" href="ivory/index.html" style="background:radial-gradient(circle,#f2c9b8,#c98a72)"><span style="color:#1d1915">Design 02</span><div class="b" data-bottle='{"name":"GULAB","liquid":"#e6a08f","liquid2":"#9c4a3a","cap":"rose","label":"#f6eee6","ink":"#7a3a2c"}'></div></a>
+    <div class="t"><h2>Ivory Atelier</h2><p>Light and editorial, like a luxury fashion magazine. Huge Bodoni type, an arch with falling rose petals, and products that scroll sideways.</p></div>
+    <div class="pages"><a class="main" href="ivory/index.html">Open website <span>→</span></a><a href="ivory/shop.html">Shop</a><a href="ivory/product.html?id=gulab-e-kannauj">Product</a><a href="ivory/heritage.html">Heritage</a><a href="ivory/contact.html">Contact</a></div>
+  </div>
+  <div class="d">
+    <a class="sw" href="velvet/index.html" style="background:radial-gradient(circle,#0d2a24,#05110e 75%)"><span>Design 03</span><div class="b" data-bottle='{"name":"KHUS","liquid":"#6a8a3a","liquid2":"#1a2a0a","cap":"silver","ink":"#cfe0a6"}'></div></a>
+    <div class="t"><h2>Mughal Velvet</h2><p>Jewel tones, jaali patterns and mihrab arches. Each fragrance recolours the whole page; a 3D bottle tilt and an interactive Scent Finder quiz.</p></div>
+    <div class="pages"><a class="main" href="velvet/index.html">Open website <span>→</span></a><a href="velvet/shop.html">Shop</a><a href="velvet/product.html?id=chandan-reserve">Product</a><a href="velvet/heritage.html">Heritage</a><a href="velvet/contact.html">Contact</a></div>
+  </div>
+</div>
+
+<p class="note"><b>Note:</b> the bottles are illustrated placeholders. In the final website they will be replaced with real product photography. Prices, phone numbers and boutique details are sample content.</p>
+<script src="assets/bottle.js"></script>
+</body>
+</html>

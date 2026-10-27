@@ -1,0 +1,20 @@
+/* Ivory Atelier — cream, ink & terracotta rose */
+:root{--bg:#f4efe7;--bg2:#ebe3d6;--panel:#faf6f0;--ink:#1d1915;--mute:#857a6c;--accent:#b5654f;--accent2:#b5654f;--line:rgba(29,25,21,.14);--on-accent:#fff;--nav-bg:rgba(244,239,231,.88);
+  --serif:'Bodoni Moda',Didot,serif;--head:'Bodoni Moda',Didot,serif;--sans:'Jost',system-ui,sans-serif}
+.brand{font-weight:400;letter-spacing:.3em}
+.btn{border-color:var(--ink)}
+.btn.solid{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.btn.solid:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{background:var(--ink);color:var(--bg)}
+.page-hero h1,.pd-info h1,.h-split h2,.h-sec h2,.related h2,.faq h2,.big-quote blockquote{font-weight:400}
+.page-hero{padding-bottom:60px}
+.pc-img{background:var(--tint)}
+.p-card{background:var(--panel)}
+.pc-info p{font-size:16px}
+.pd-stage{background:radial-gradient(circle at 50% 60%,#f2c9b8,#e2b8a4 35%,#d6c1ad 75%)}
+.pd-stage .pd-b{filter:drop-shadow(0 40px 40px rgba(90,40,25,.35))}
+.h-art{border-radius:999px 999px 0 0;background:radial-gradient(circle at 50% 70%,#f2c9b8,#e5b29c 35%,#c98a72 80%)}
+.timeline b{color:transparent;-webkit-text-stroke:1px var(--ink);font-size:72px}
+.big-quote{background:var(--ink);color:var(--bg)}.big-quote em{color:#e3a58f}
+.mmenu nav>a,.mmenu summary{font-weight:400}
+.switcher{box-shadow:0 10px 30px rgba(0,0,0,.08)}

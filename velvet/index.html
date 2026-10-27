@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kannauj Perfume — Mughal Velvet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/components.css">
+<link rel="stylesheet" href="theme.css">
+<style>
+:root{--a:#0d2a24;--b:#05110e;--accent:#d8b46a;--ink:#f1eadb;--mute:rgba(241,234,219,.6);--line:rgba(216,180,106,.22);--disp:'Cinzel',serif;--serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;--ease:cubic-bezier(.19,1,.22,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--b);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg{display:block;max-width:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+
+
+/* Showcase — whole scene recolours per fragrance */
+.show{position:relative;min-height:100vh;background:radial-gradient(ellipse at 60% 45%,var(--a),var(--b) 75%);transition:background 1.2s var(--ease);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;padding:150px 5vw 140px;overflow:hidden}
+.jaali{position:absolute;inset:0;opacity:.09;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23d8b46a' stroke-width='1'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3Ccircle cx='40' cy='40' r='14'/%3E%3Cpath d='M40 26 Q48 40 40 54 Q32 40 40 26 M26 40 Q40 32 54 40 Q40 48 26 40'/%3E%3C/g%3E%3C/svg%3E");mask:radial-gradient(circle at 70% 50%,#000,transparent 70%);-webkit-mask:radial-gradient(circle at 70% 50%,#000,transparent 70%)}
+.copy{position:relative;z-index:2}
+.copy small{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--accent);transition:color 1s}
+.copy h1{font-family:var(--disp);font-weight:400;font-size:clamp(48px,7vw,116px);line-height:.98;margin:22px 0 12px;letter-spacing:.02em}
+.copy .hi{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.2vw,32px);color:var(--accent);transition:color 1s}
+.copy p{max-width:440px;color:var(--mute);line-height:1.9;margin:26px 0 30px}
+.notes{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px}
+.notes span{border:1px solid var(--line);border-radius:99px;padding:8px 16px;font-size:12px;letter-spacing:.1em;backdrop-filter:blur(6px);background:rgba(255,255,255,.03)}
+.swap{transition:opacity .5s,transform .7s var(--ease)}
+.swap.out{opacity:0;transform:translateY(16px)}
+.btn{display:inline-flex;align-items:center;gap:14px;padding:18px 34px;background:var(--accent);color:#0b0b0b;font-size:11px;letter-spacing:.28em;text-transform:uppercase;border:0;transition:transform .5s var(--ease),box-shadow .5s,background 1s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px -10px var(--accent)}
+.btn.line{background:none;color:var(--ink);border:1px solid var(--line)}
+.scene{position:relative;height:74vh;display:grid;place-items:center;perspective:1000px}
+.mihrab{position:absolute;width:min(420px,80%);height:92%;border:1px solid var(--line);border-radius:50% 50% 0 0/38% 38% 0 0;background:linear-gradient(rgba(255,255,255,.04),transparent)}
+.mihrab::before{content:"";position:absolute;inset:16px 16px 0;border:1px solid var(--line);border-bottom:0;border-radius:inherit}
+.tilt{width:min(280px,55%);transform-style:preserve-3d;transition:transform .3s ease-out;filter:drop-shadow(0 50px 50px rgba(0,0,0,.6))}
+.tilt .b{transition:opacity .6s,transform .8s var(--ease)}
+.tilt .b.out{opacity:0;transform:scale(.9) translateY(20px)}
+.glow{position:absolute;width:60%;aspect-ratio:1;border-radius:50%;background:var(--accent);filter:blur(120px);opacity:.25;transition:background 1s}
+.picker{position:absolute;left:5vw;right:5vw;bottom:40px;display:flex;gap:12px;z-index:3;justify-content:center;flex-wrap:wrap}
+.picker button{background:rgba(255,255,255,.04);border:1px solid var(--line);padding:12px 18px 12px 12px;display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;backdrop-filter:blur(10px);transition:all .5s var(--ease)}
+.picker button i{width:22px;height:22px;border-radius:50%;background:var(--sw);box-shadow:inset -3px -4px 8px rgba(0,0,0,.4)}
+.picker button.on,.picker button:hover{border-color:var(--accent);background:rgba(255,255,255,.09)}
+
+/* Story */
+.story{padding:160px 5vw;display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center;background:var(--b)}
+.story h2{font-family:var(--disp);font-weight:400;font-size:clamp(34px,4vw,62px);line-height:1.1}
+.story h2 em{font-family:var(--serif);color:var(--accent)}
+.story p{color:var(--mute);line-height:2;margin-top:24px}
+.frames{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.frame{aspect-ratio:3/4;border-radius:50% 50% 0 0/30% 30% 0 0;border:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end;padding:26px;position:relative;overflow:hidden}
+.frame:nth-child(2){transform:translateY(60px)}
+.frame b{font-family:var(--disp);font-weight:400;font-size:48px;color:var(--accent);line-height:1}
+.frame span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+.frame{background:linear-gradient(180deg,rgba(216,180,106,.08),rgba(255,255,255,.01))}
+
+/* Finder */
+.finder{padding:150px 5vw;background:linear-gradient(#081814,#05110e);text-align:center;border-top:1px solid var(--line)}
+.finder small{font-size:11px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase}
+.finder h2{font-family:var(--disp);font-weight:400;font-size:clamp(34px,4.4vw,66px);margin:20px 0 14px}
+.finder .sub{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--mute);margin-bottom:60px}
+.q{max-width:900px;margin:auto}
+.q h3{font-family:var(--serif);font-weight:300;font-size:clamp(26px,2.8vw,38px);margin-bottom:34px}
+.opts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.opts button{background:rgba(255,255,255,.03);border:1px solid var(--line);padding:34px 18px;transition:all .5s var(--ease)}
+.opts button:hover{border-color:var(--accent);transform:translateY(-6px);background:rgba(216,180,106,.08)}
+.opts button span{display:block;font-size:30px;margin-bottom:14px}
+.opts button b{font-family:var(--serif);font-weight:400;font-size:22px;display:block}
+.opts button em{font-size:12px;color:var(--mute);font-style:normal}
+.progress{display:flex;gap:8px;justify-content:center;margin-bottom:40px}
+.progress i{width:40px;height:2px;background:var(--line)}.progress i.on{background:var(--accent)}
+.result{display:none;align-items:center;gap:50px;justify-content:center;text-align:left;flex-wrap:wrap}
+.result.on{display:flex}
+.result .b{width:170px}
+.result h3{font-family:var(--disp);font-weight:400;font-size:44px;margin:10px 0}
+.result p{color:var(--mute);max-width:380px;line-height:1.8;margin-bottom:28px}
+
+
+.reveal{opacity:0;transform:translateY(40px);transition:opacity 1.3s var(--ease),transform 1.3s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+@media (max-width:900px){
+  .show{grid-template-columns:minmax(0,1fr);padding:120px 20px 60px}.scene{height:52vh;order:-1}
+  .story{grid-template-columns:1fr}.opts{grid-template-columns:1fr 1fr}
+  .picker{position:static;margin-top:40px;justify-content:flex-start}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body data-page="home" data-theme="velvet">
+
+<header class="show" id="show">
+  <div class="jaali"></div>
+  <div class="copy">
+    <small id="fam">Woody · Oriental</small>
+    <h1 class="swap" id="name">Oudh Shahi</h1>
+    <div class="hi swap" id="tag">The scent of the Mughal court.</div>
+    <p class="swap" id="desc">Assam oudh, smoked over saffron and Kannauj rose — dense, regal and unforgettable. A single drop lasts through the night.</p>
+    <div class="notes swap" id="notes"><span>Kashmiri Saffron</span><span>Kannauj Rose</span><span>Assam Oudh</span></div>
+    <div style="display:flex;gap:14px;flex-wrap:wrap"><a class="btn" href="#" id="buy" data-add="oudh-shahi">Add to Bag — ₹ 24,500</a><a class="btn line" href="#finder">Find Your Scent</a><a class="btn line" href="shop.html">All Attars</a></div>
+  </div>
+  <div class="scene" id="scene">
+    <div class="glow"></div><div class="mihrab"></div>
+    <div class="tilt" id="tilt"><div class="b" id="bottle"></div></div>
+  </div>
+  <div class="picker" id="picker"></div>
+</header>
+
+<section class="story" id="story">
+  <div class="reveal">
+    <h2>India's perfume capital,<br><em>bottled by hand.</em></h2>
+    <p>On the banks of the Ganga, Kannauj has distilled attar for centuries — for emperors, for temples, for weddings. We work with the same families, the same copper stills and the same flower fields, and we bring their craft to the world with the finish it has always deserved.</p>
+    <p>No alcohol in our attars. No shortcuts. Only patience, fire and flowers.</p>
+  </div>
+  <div class="frames reveal">
+    <div class="frame"><b>72</b><span>Hours over wood fire</span></div>
+    <div class="frame"><b>100%</b><span>Natural attar oils</span></div>
+  </div>
+</section>
+
+<section class="finder" id="finder">
+  <small>Scent Finder</small>
+  <h2>Find your attar</h2>
+  <div class="sub">Three questions. Your signature scent.</div>
+  <div class="q" id="quiz"></div>
+  <div class="result" id="result">
+    <div class="b" id="rb"></div>
+    <div><small>Your signature</small><h3 id="rn"></h3><p id="rd"></p><a class="btn" href="#" id="rshop">View Attar</a> <button class="btn line" id="again" style="margin-left:8px">Retake</button></div>
+  </div>
+</section>
+
+
+<script src="../assets/bottle.js"></script>
+<script src="../assets/catalog.js"></script>
+<script src="../assets/site.js"></script>
+<script>
+const P = [
+  { id:'oudh-shahi', name:'Oudh Shahi', fam:'Woody · Oriental', tag:'The scent of the Mughal court.', desc:'Assam oudh, smoked over saffron and Kannauj rose — dense, regal and unforgettable. A single drop lasts through the night.', notes:['Kashmiri Saffron','Kannauj Rose','Assam Oudh'], price:'24,500', a:'#0d2a24', b:'#05110e', acc:'#d8b46a', bottle:{name:'OUDH SHAHI',liquid:'#a8752e',liquid2:'#3a1f07',shape:'facet'} },
+  { id:'gulab-e-kannauj', name:'Gulab-e-Kannauj', fam:'Floral · Rose Attar', tag:'A thousand roses, one drop.', desc:'Desi roses picked before sunrise and distilled the same morning into pure sandalwood. Soft, luminous, deeply romantic.', notes:['Desi Rose','Pink Pepper','Mysore Sandal'], price:'8,900', a:'#4a1220', b:'#16050a', acc:'#f0a99a', bottle:{name:'GULAB',sub:'E-KANNAUJ',liquid:'#d0485a',liquid2:'#4a0814',cap:'rose',ink:'#f0c3b6'} },
+  { id:'mitti', name:'Mitti', fam:'Earthy · Petrichor', tag:'The first rain of the monsoon.', desc:'Ganga clay, baked in the sun and distilled — the smell of dry earth meeting rain. Only Kannauj makes it this way.', notes:['Baked Clay','Khus','Cedar'], price:'7,500', a:'#3a2a1c', b:'#110b06', acc:'#d6a676', bottle:{name:'MITTI',sub:'PETRICHOR',liquid:'#8a5a38',liquid2:'#2a160a',cap:'black',ink:'#e2b98e'} },
+  { id:'chandan-reserve', name:'Chandan Reserve', fam:'Woody · Creamy', tag:'Liquid Mysore gold.', desc:'Aged Mysore sandalwood, warm and milky, with a trace of cardamom. Calm, sacred, endlessly elegant.', notes:['Mysore Sandal','Cardamom','White Musk'], price:'18,500', a:'#3d2e10', b:'#120c03', acc:'#f0cc7a', bottle:{name:'CHANDAN',sub:'MYSORE RESERVE',liquid:'#d8a24a',liquid2:'#5a3608'} },
+  { id:'khus', name:'Khus', fam:'Green · Aromatic', tag:'Shade on a summer afternoon.', desc:'Vetiver roots, cooled and green, with mint and lime. The scent Indian summers were made for.', notes:['Vetiver Root','Mint','Lime'], price:'6,800', a:'#1c3014', b:'#070d04', acc:'#bcd48a', bottle:{name:'KHUS',sub:'VETIVER',liquid:'#6a8a3a',liquid2:'#1a2a0a',cap:'silver',ink:'#cfe0a6'} }
+];
+const $ = id => document.getElementById(id), root = document.documentElement;
+
+// Showcase switcher
+P.forEach((p, i) => {
+  const b = document.createElement('button');
+  b.innerHTML = `<i style="--sw:${p.bottle.liquid}"></i>${p.name}`;
+  b.onclick = () => show(i);
+  $('picker').appendChild(b);
+});
+let cur = -1;
+function show(i) {
+  if (i === cur) return;
+  const p = P[i], first = cur < 0; cur = i;
+  [...$('picker').children].forEach((b, j) => b.classList.toggle('on', j === i));
+  root.style.setProperty('--a', p.a); root.style.setProperty('--b', p.b); root.style.setProperty('--accent', p.acc);
+  const swaps = document.querySelectorAll('.swap'), bt = $('bottle');
+  const apply = () => {
+    $('fam').textContent = p.fam; $('name').textContent = p.name; $('tag').textContent = p.tag; $('desc').textContent = p.desc;
+    $('notes').innerHTML = p.notes.map(n => `<span>${n}</span>`).join('');
+    $('buy').textContent = `Add to Bag — ₹ ${p.price}`; $('buy').dataset.add = p.id;
+    bt.innerHTML = bottleSVG(p.bottle);
+    swaps.forEach(s => s.classList.remove('out')); bt.classList.remove('out');
+  };
+  if (first) return apply();
+  swaps.forEach(s => s.classList.add('out')); bt.classList.add('out');
+  setTimeout(apply, 450);
+}
+show(0);
+let auto = setInterval(() => show((cur + 1) % P.length), 6000);
+$('picker').addEventListener('click', () => clearInterval(auto));
+
+// 3D tilt on the bottle
+$('scene').addEventListener('mousemove', e => {
+  const r = e.currentTarget.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+  $('tilt').style.transform = `rotateY(${x * 22}deg) rotateX(${-y * 14}deg)`;
+});
+$('scene').addEventListener('mouseleave', () => $('tilt').style.transform = '');
+
+// Scent finder
+const Q = [
+  { q:'When do you feel most yourself?', o:[['🌅','At dawn','Fresh, quiet'],['🌇','At dusk','Warm, golden'],['🌙','After midnight','Deep, bold'],['🌧️','In the rain','Earthy, calm']] },
+  { q:'Pick a place.', o:[['🏰','A Mughal palace','Regal'],['🌹','A rose garden','Romantic'],['🛕','A temple courtyard','Serene'],['🌾','Open fields','Natural']] },
+  { q:'How should your scent speak?', o:[['🔥','Commanding','Noticed first'],['🕊️','Softly','Close to skin'],['✨','Elegantly','Refined'],['🍃','Freely','Light, cool']] }
+];
+const MAP = [[0,1,0,2],[0,1,3,4],[0,1,3,4]], score = {};
+let step = 0;
+function renderQ() {
+  const s = Q[step];
+  $('quiz').innerHTML = `<div class="progress">${Q.map((_, i) => `<i class="${i <= step ? 'on' : ''}"></i>`).join('')}</div><h3>${s.q}</h3><div class="opts">${s.o.map((o, i) => `<button data-i="${i}"><span>${o[0]}</span><b>${o[1]}</b><em>${o[2]}</em></button>`).join('')}</div>`;
+  $('quiz').querySelectorAll('button').forEach(b => b.onclick = () => {
+    const k = MAP[step][+b.dataset.i]; score[k] = (score[k] || 0) + 1 + (step === 2 ? .5 : 0);
+    if (++step < Q.length) return renderQ();
+    const best = +Object.entries(score).sort((a, b) => b[1] - a[1])[0][0], p = P[best];
+    $('quiz').innerHTML = ''; $('result').classList.add('on');
+    $('rb').innerHTML = bottleSVG(p.bottle); $('rn').textContent = p.name; $('rshop').href = 'product.html?id=' + p.id; $('rd').textContent = p.desc;
+    show(best);
+  });
+}
+$('again').onclick = () => { step = 0; for (const k in score) delete score[k]; $('result').classList.remove('on'); renderQ(); };
+renderQ();
+
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
